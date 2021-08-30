@@ -8,10 +8,35 @@
     Access to clean water in the United States isn't actually guaranteed for everyone. There are currently lots of efforts that are working towards making this a distant memory. FindWater.io is yet another attempt to not only facilitate finding access to clean drinking water but also to facilitate finding clean drinking water that folks can collect with reusable containers. We would love for everyone to have access to water and be able to give back to the environment by not consumer more plastic. Tribal communities, impoverished neighborhoods, minority groups, nomads, and campers all have a similar need: access to clean drinking water. This is an open-source project created by Jackie Sweet and she welcomes feedback. The premise is a crowdsourced, free website where people can search for and report water sources (free or premium) within the United States. The data is available via a public API. If you have any questions, concerns, or feedback, please feel free to contact <a href="mailto:jackie@findwater.io">Jackie</a>
     <br/>
     <br/>
-    <h6>Other Information</h6>
+  </div>
+  <div class="links">
+    <h4>Other Information</h4>
     <ul style="list-style:none">
-      <li><a href="https://www.digdeep.org/">DigDeep</a></li>
-      <li><a href="http://uswateralliance.org/sites/uswateralliance.org/files/publications/Closing%20the%20Water%20Access%20Gap%20in%20the%20United%20States_DIGITAL.pdf">US Water Alliance - Water Access Gap in the US</a>
+      <li>
+        <a href="https://www.digdeep.org/">DigDeep</a>
+      </li>
+      <li>
+        <a href="http://uswateralliance.org/sites/uswateralliance.org/files/publications/Closing%20the%20Water%20Access%20Gap%20in%20the%20United%20States_DIGITAL.pdf">US Water Alliance - Water Access Gap in the US</a>
+      </li>
+      <li>
+        <a href="https://time.com/longform/clean-water-access-united-states/">America's Clean Water Crisis Goes Far Beyond Flint. There's No Relief in Sight.</a>
+      </li>
+    </ul>
+  </div>
+  <div class="help">
+    <h4>How Can I Help?</h4>
+    <ul style="list-style:none">
+      <li>
+        <a href="#" title="Donate to the FindWater project"><MDBIcon icon="paypal" iconStyle="fab" /></a>
+      </li>
+      <li>
+        <a href="https://www.digdeep.org/">DigDeep</a>
+      </li>
+      <li>
+        <a href="http://uswateralliance.org/sites/uswateralliance.org/files/publications/Closing%20the%20Water%20Access%20Gap%20in%20the%20United%20States_DIGITAL.pdf">US Water Alliance - Water Access Gap in the US</a>
+      </li>
+      <li>
+        <a href="https://time.com/longform/clean-water-access-united-states/">America's Clean Water Crisis Goes Far Beyond Flint. There's No Relief in Sight.</a>
       </li>
     </ul>
   </div>
@@ -21,13 +46,14 @@
 </template>
 
 <script>
+import { MDBIcon } from 'mdb-vue-ui-kit';
 
 export default {
   name: 'About',
   components: {
+    MDBIcon
   },
 }
-
 </script>
 
 <style>
@@ -39,5 +65,13 @@ a {
 }
 .about {
   margin: 50px;
+}
+.links {
+  text-align: left;
+  display: inline;
+}
+.help {
+  text-align:right;
+  display: inline;
 }
 </style>
