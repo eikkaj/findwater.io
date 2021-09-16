@@ -35,8 +35,8 @@
 
    </div>
 </template>
-<script>
 
+<script>
 import { ref } from 'vue'
 import { MDBCol, MDBRow, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImg, MDBBtn } from 'mdb-vue-ui-kit';
 
@@ -104,5 +104,4 @@ export default {
     };
   } 
 }
-
 </script>

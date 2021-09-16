@@ -1,6 +1,7 @@
 <template>
 <div style="background: #f1f1f1;padding:25px;">
-
+  <div class="p-5 text-center about-bg-image">
+  </div>
 
   <!-- About the Project -->
   <div class="about">
@@ -9,49 +10,52 @@
     <br/>
     <br/>
   </div>
-  <div class="links">
-    <h4>Other Information</h4>
-    <ul style="list-style:none">
-      <li>
-        <a href="https://www.digdeep.org/">DigDeep</a>
-      </li>
-      <li>
-        <a href="http://uswateralliance.org/sites/uswateralliance.org/files/publications/Closing%20the%20Water%20Access%20Gap%20in%20the%20United%20States_DIGITAL.pdf">US Water Alliance - Water Access Gap in the US</a>
-      </li>
-      <li>
-        <a href="https://time.com/longform/clean-water-access-united-states/">America's Clean Water Crisis Goes Far Beyond Flint. There's No Relief in Sight.</a>
-      </li>
-    </ul>
+  <div class="links-help">
+    <MDBTable borderless>
+      <tbody>
+        <tr>
+          <th>Other Projects and Links</th>
+          <th>How Can I Help?</th>
+        </tr>
+        <tr>
+          <td>
+            <a href="https://www.urbanwaterslearningnetwork.org/wp-content/uploads/2019/05/UNC-Clean-Water-Access-Challenges2017.pdf">UNC Clean Watter Access Challenges 2017</a>
+          </td>
+          <td>
+            <a href="#" title="Donate to the FindWater project"><MDBIcon icon="paypal" iconStyle="fab" /></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="http://uswateralliance.org/sites/uswateralliance.org/files/publications/Closing%20the%20Water%20Access%20Gap%20in%20the%20United%20States_DIGITAL.pdf">US Water Alliance - Water Access Gap in the US</a>
+          </td>
+          <td>
+            <a href="" title="Contribute"><MDBIcon icon="github" iconStyle="fab" /></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="https://time.com/longform/clean-water-access-united-states/">Time Magazine - America's Clean Water Crisis Goes Far Beyond Flint. There's No Relief in Sight.</a>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="https://www.digdeep.org/">The DigDeep Project</a></td>
+        </tr>
+      </tbody>
+    </MDBTable>
   </div>
-  <div class="help">
-    <h4>How Can I Help?</h4>
-    <ul style="list-style:none">
-      <li>
-        <a href="#" title="Donate to the FindWater project"><MDBIcon icon="paypal" iconStyle="fab" /></a>
-      </li>
-      <li>
-        <a href="https://www.digdeep.org/">DigDeep</a>
-      </li>
-      <li>
-        <a href="http://uswateralliance.org/sites/uswateralliance.org/files/publications/Closing%20the%20Water%20Access%20Gap%20in%20the%20United%20States_DIGITAL.pdf">US Water Alliance - Water Access Gap in the US</a>
-      </li>
-      <li>
-        <a href="https://time.com/longform/clean-water-access-united-states/">America's Clean Water Crisis Goes Far Beyond Flint. There's No Relief in Sight.</a>
-      </li>
-    </ul>
-  </div>
-
 </div>
 
 </template>
 
 <script>
-import { MDBIcon } from 'mdb-vue-ui-kit';
+import { MDBIcon, MDBTable } from 'mdb-vue-ui-kit';
 
 export default {
   name: 'About',
   components: {
-    MDBIcon
+    MDBIcon,
+    MDBTable
   },
 }
 </script>
@@ -66,12 +70,18 @@ a {
 .about {
   margin: 50px;
 }
-.links {
-  text-align: left;
-  display: inline;
+.table {
+  text-align: center;
 }
-.help {
-  text-align:right;
-  display: inline;
+.table th {
+  padding: 2px!important;
+  width: 50%;
+}
+.table td  {
+  padding: 2px!important;
+}
+.about-bg-image {
+  background-image: url("../assets/jumbo/2.jpeg");
+  height: 400px;
 }
 </style>
