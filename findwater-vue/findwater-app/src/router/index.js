@@ -10,6 +10,7 @@ import ResetPassword from '@/components/ResetPassword'
 import SearchResults from '@/components/SearchResults'
 import Submit from '@/components/Submit'
 import WaterSource from '@/components/WaterSource'
+import WaterSourceEdit from '@/components/WaterSourceEdit'
 
 const routes = [
   {
@@ -61,6 +62,12 @@ const routes = [
     path: '/watersource',
     name: 'WaterSource',
     component: WaterSource,
+    props: true
+  },
+  {
+    path: '/watersourceEdit',
+    name: 'WaterSourceEdit',
+    component: WaterSourceEdit,
     props: true
   }
 ];

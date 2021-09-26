@@ -8,52 +8,77 @@
                 <a :href="'http://www.google.com/maps/place/' + watersourceObj.coords">{{watersourceObj.coords}}</a>
             </h3>
             <div class="actions-bar">
-                <router-link :to="{ name: 'WaterSourceEdit', params: { watersource: watersource } } ">
-                    <MDBIcon icon="edit" iconStyle="fas" />
-                </router-link>
-                <a href="#" disabled></a>
-                <a href="#" disabled><MDBIcon icon="share" iconStyle="fas" /></a>
+                
             </div>
             <div class="watersource-table">
                 <MDBTable hover>
                     <tbody>
                     <tr>
                       <th>Description</th>
-                      <td>{{watersourceObj.description}}</td>
+                      <input type="text" v-model="watersourceObj.description" class="text-sm outline-none pb-2 w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
                     </tr>
                     <tr>
                       <th>Coordinates (Lat,Long)</th>
-                      <td>{{watersourceObj.coords}}</td>
+                      <input type="text" v-model="watersourceObj.coords" class="text-sm outline-none pb-2 w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
                     </tr>
                     <tr>
                       <th>Street Address</th>
-                      <td>{{watersourceObj.street_address}}</td>
+                      <input type="text" v-model="watersourceObj.street_address" class="text-sm outline-none pb-2 w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
                     </tr>
                     <tr>
                       <th>US State</th>
-                      <td>{{watersourceObj.us_state}}</td>
+                      <input type="text" v-model="watersourceObj.us_state" class="text-sm outline-none pb-2 w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
                     </tr>
                     <tr>
                       <th>Water Source Type</th>
-                      <td>{{watersourceObj.type}}</td>
+                      <input type="text" v-model="watersourceObj.type" class="text-sm outline-none pb-2 w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
                     </tr>
                     </tbody>
                 </MDBTable>
+                <MDBBtn color="primary" type="submit" @click="save()">Save</MDBBtn>
             </div>
         </div>     
     </div>
 </template>
 <script>
-import { MDBCardImg, MDBTable, MDBIcon } from 'mdb-vue-ui-kit';
+import { MDBCardImg, MDBTable, MDBBtn } from 'mdb-vue-ui-kit';
 export default {
-  name: 'WaterSource',
+  name: 'WaterSourceEdit',
   props: ['watersource'],
   components: {
     MDBCardImg,
     MDBTable,
-    MDBIcon
+    MDBBtn
   },
   methods: {
+    async save() {
+        try {
+            await this.axios.put(`http://localhost:1337/water-sources/` + this.watersource,
+            {
+                    data: {
+                    'type': this.type,
+                    description: this.description,
+                    coords: this.coords,
+                    us_state: this.us_state
+                    }
+            },
+            /** TO BE FIXED {
+                headers: {
+                    Authorization:
+                        'Bearer ' + window.localStorage.getItem('jwt'),
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            } **/
+            );
+
+            // redirect
+            this.$router.push({ name: 'WaterSource', params: { watersource: this.watersource } })
+
+        } catch(e) {
+            console.log('Error: ' + e);
+            this.error = true
+        } 
+    }
   },
   data(){
     return {
@@ -67,7 +92,6 @@ export default {
     .then((res) => res.json())
     .then((data) => {
         this.watersourceObj = data;
-        console.log(this.watersourceObj);
     });
   }
 }

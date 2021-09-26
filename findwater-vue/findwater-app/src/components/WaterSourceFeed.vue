@@ -10,7 +10,7 @@
               <MDBCardText>
                 {{watersource.description}}
               </MDBCardText>
-              <MDBBtn tag="a" href="http://localhost:8080/WaterSource" color="primary">
+              <MDBBtn tag="a" href="http://localhost:8080/WaterSource" outline="primary">
                 <router-link :to="{ name: 'WaterSource', params: { watersource: watersource.id } } ">Open</router-link>
               </MDBBtn>
             </MDBCardBody>
@@ -60,7 +60,7 @@ export default {
 .water-source-feed {
   padding: 1rem !important;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 7%), 0 4px 6px -2px rgb(0 0 0 / 5%);
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   border-radius: 5px;
   margin-left: 50px;
   margin-right: 50px;

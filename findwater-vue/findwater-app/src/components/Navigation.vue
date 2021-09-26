@@ -5,9 +5,8 @@
     </div>
     <div class="nav">
       <router-link to="/SearchResults" class="link">Water Source Finder</router-link>
-      <router-link to="/Submit" class="link login" :disabled="!loggedIn">
+      <router-link to="/Submit" class="link login">
         Submit a New Water Source
-        <span class="tooltiptext">You must be logged in to submit new water sources</span>
       </router-link>
       <router-link to="/About" class="link">About the Project</router-link>
       <router-link to="/Contact" class="link">Contact Us</router-link>

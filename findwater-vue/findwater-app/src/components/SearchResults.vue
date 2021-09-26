@@ -1,11 +1,17 @@
 <template>
-   <div>
-     <h2>Water Search Finder</h2>
-     <input 
-      type='text' 
-      placeholder='Filter Search' 
-      v-model='search.text'
-    />
+  <div>
+    <div class="flex items-center justify-center h-screen">
+      <div class="sm:w-1/2">
+        <div class="p-5 w-4/5 mx-auto text-left font-raleway">
+          <h1 class="font-bold text-left font-montserrat text-4xl sm:text-6xl">
+            Water Source Finder
+          </h1>
+        </div>
+      </div>
+
+    
+   
+    <input type='text' placeholder='Filter Search' v-model='search.text' />
     {{ query }}
     <button @click='searchsources'> Search</button>
     <button @click='reset'> Reset </button>
@@ -31,8 +37,7 @@
         </div>
       </MDBRow>
     </div>
-
-
+   </div>
    </div>
 </template>
 
@@ -105,3 +110,6 @@ export default {
   } 
 }
 </script>
+<style>
+
+</style>
