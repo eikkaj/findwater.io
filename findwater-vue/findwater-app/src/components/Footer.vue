@@ -35,6 +35,9 @@
             <li>
               <a href="#!" class="text-dark">Submit a New Water Source</a>
             </li>
+            <li>
+              <a href="#!" class="text-dark">Privacy Policy</a>
+            </li>
           </ul>
         </MDBCol>
         <!--Grid column-->

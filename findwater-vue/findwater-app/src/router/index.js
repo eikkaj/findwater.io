@@ -5,6 +5,7 @@ import Contact from '@/components/Contact'
 import ForgotPassword from '@/components/ForgotPassword'
 import Home from '@/components/Home'
 import Login from '@/components/Login'
+import Privacy from '@/components/Privacy'
 import Register from '@/components/Register'
 import ResetPassword from '@/components/ResetPassword'
 import SearchResults from '@/components/SearchResults'
@@ -37,6 +38,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/privacy',
+    name: 'Privacy',
+    component: Privacy
   },
   {
     path: '/register',
