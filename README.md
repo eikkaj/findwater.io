@@ -4,6 +4,10 @@ FindWater.io is an open source project created by [Jackie Sweet](http://eikkaj.g
 ## Installation
 To run the strapi app, cd to `findwater-io` directory and run
 ```
+npm install
+```
+
+```
 npm run develop
 ```
 

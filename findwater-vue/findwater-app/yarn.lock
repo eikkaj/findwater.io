@@ -3218,6 +3218,11 @@
   "resolved" "https://registry.npm.taobao.org/deepmerge/download/deepmerge-1.5.2.tgz"
   "version" "1.5.2"
 
+"deepmerge@^4.2.2":
+  "integrity" "sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg=="
+  "resolved" "https://registry.npmjs.org/deepmerge/-/deepmerge-4.2.2.tgz"
+  "version" "4.2.2"
+
 "default-gateway@^4.2.0":
   "integrity" "sha1-FnEEx1AMIRX23WmwpTa7jtcgVSs="
   "resolved" "https://registry.npm.taobao.org/default-gateway/download/default-gateway-4.2.0.tgz?cache=0&sync_timestamp=1610365784356&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdefault-gateway%2Fdownload%2Fdefault-gateway-4.2.0.tgz"
@@ -8657,6 +8662,13 @@
     "loader-utils" "^1.1.0"
     "vue-hot-reload-api" "^2.3.0"
     "vue-style-loader" "^4.1.0"
+
+"vue-meta@^2.4.0":
+  "integrity" "sha512-XEeZUmlVeODclAjCNpWDnjgw+t3WA6gdzs6ENoIAgwO1J1d5p1tezDhtteLUFwcaQaTtayRrsx7GL6oXp/m2Jw=="
+  "resolved" "https://registry.npmjs.org/vue-meta/-/vue-meta-2.4.0.tgz"
+  "version" "2.4.0"
+  dependencies:
+    "deepmerge" "^4.2.2"
 
 "vue-nav-ui@^1.0.5":
   "integrity" "sha512-mE5R16sGljkJ7bzJVquH19GqFhSGOwdw/X1iX4LktjUZfiCEVSenlTNQrcjE9FKcy3VJvNv8m8G90+/Ajoy4Lw=="

@@ -5,10 +5,12 @@ import { createApp } from 'vue'
 import { createStore } from 'vuex'
 
 import App from './App.vue'
-import router from './router'
 import axios from 'axios'
+import router from './router'
+//import Vue from 'vue'
 import VueAxios from 'vue-axios'
 import Vuex from 'vuex'
+import VueMeta from 'vue-meta';
 
 // Create a new store instance.
 const store = createStore({
@@ -24,4 +26,4 @@ const store = createStore({
   }
 })
 
-createApp(App).use(router).use(VueAxios, axios, Vuex, store).mount('#app')
+createApp(App).use(router).use(VueAxios, axios, Vuex, store, VueMeta).mount('#app')

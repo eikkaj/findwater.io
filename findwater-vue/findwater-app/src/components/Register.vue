@@ -1,41 +1,64 @@
     <template>
-        <div>
-            <div class="flex items-center justify-center h-screen">
-                <div class="hidden sm:block w-1/2 bg-cover h-screen" style='background: url(newFood.png)'>
-                    <div class="bg-blue-800 w-full h-screen bg-opacity-20">
-                    </div>
+        <MDBBtn color="primary" aria-controls="exampleModal" @click="exampleModal = true" v-show="!loggedIn">Register</MDBBtn>
+    
+        <MDBModal
+            id="exampleModal"
+            tabindex="-1"
+            labelledby="exampleModalLabel"
+            v-model="exampleModal"
+          >
+          <MDBModalHeader>
+              <MDBModalTitle id="exampleModalLabel">Create an Account</MDBModalTitle>
+            </MDBModalHeader>
+            <MDBModalBody>
+              <div>
+                <div class="p-5 w-4/5 mx-auto text-left font-raleway">
+                  <p v-show="error" class="text-sm text-red-500">{{ errorMsg }}</p>
+                    <form @submit="register">
+                      <div class="reg">
+                        <h3 class="text-left font-bold mb-2 font-montserrat reg-header">Username</h3>
+                          <input type="username" v-model="username" class="text-sm outline-none pb-2 w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
+                        <h3 class="text-left font-bold mb-2 font-montserrat reg-header">Email</h3>
+                          <input type="email" v-model="email" class="text-sm outline-none pb-2 w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
+                        <h3 class="text-left font-bold mb-2 font-montserrat reg-header">Password</h3>
+                        <input type="password" v-model="password" class="text-sm outline-none pb-2 w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
+                      </div>
+                                    
+                      <!-- <button type="submit" :disabled="email.length < 6 || password.length < 6 " class="reg-button">
+                        Sign Up
+                      </button> -->
+                    </form>
+                  </div>
                 </div>
-                <div class="sm:w-1/2 reg-container">
-                    <div class="p-5 w-4/5 mx-auto text-left font-raleway">
-                        <h1 class="font-bold text-left font-montserrat text-4xl sm:text-6xl mb-7">
-                            Register to use FindWater.io
-                        </h1>
-                        <p v-show="error" class="text-sm text-red-500">{{ errorMsg }}</p>
-                        <form @submit="register">
-                            <div class="reg">
-                                <h3 class="text-left font-bold mb-2 font-montserrat reg-header">Email</h3>
-                                <input type="email" v-model="email" class="text-sm outline-none pb-2 w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
-                            </div>
-                            <div class="reg">
-                                <h3 class="text-left font-bold mb-2 font-montserrat reg-header">Password</h3>
-                                <input type="password" v-model="password" class="text-sm outline-none pb-2 w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
-                            </div>
-                            
-                            <button type="submit" :disabled="email.length < 6 || password.length < 6 " class="reg-button">
-                                Sign Up
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </MDBModalBody>
+            <MDBModalFooter>
+              <MDBBtn color="secondary" @click="exampleModal = false">Close</MDBBtn>
+              <MDBBtn color="primary" :disabled="email.length < 6 || password.length < 6 " type="submit" @click="register()">Register</MDBBtn>
+            </MDBModalFooter>
+        </MDBModal>
     </template>
     <script>
+        import { MDBBtn, MDBModal, MDBModalHeader, MDBModalTitle, MDBModalBody, MDBModalFooter } from 'mdb-vue-ui-kit'
+        import { ref } from 'vue'
         export default {
             name: 'Register',
+            components: {
+              MDBBtn,
+              MDBModal,
+              MDBModalHeader,
+              MDBModalTitle,
+              MDBModalBody,
+              MDBModalFooter
+            },
+            setup() {
+              const exampleModal = ref(false);
+              return {
+                exampleModal,
+              };
+            },
             data() {
                 return {
-                    name: '',
+                    username: '',
                     email: '',
                     password: '',
                     error: false,
@@ -43,22 +66,26 @@
                 }
             },
             methods: {
-                async register(e) {
+                async register() {
+                    console.log('in register');
                     try {
-                        e.preventDefault()
-                            await this.axios.post(`http://localhost:1337/auth/local/register`, {
-                            name: this.name,
-                            password: this.password,
-                            email: this.email,
-                            username: this.email
-                        })
-                        this.$router.push('login')
+                      const res = await this.axios.post(`http://localhost:1337/auth/local/register`, {
+                        username: this.username,
+                        email: this.email,
+                        password: this.password
+                      });
+                      const { jwt, user } = res.data
+                      window.localStorage.setItem('jwt', jwt)
+                      window.localStorage.setItem('userData', JSON.stringify(user))
+                      window.localStorage.setItem('bookmarks', JSON.stringify(user.bookmarks))
+                      this.exampleModal = false
+                      this.loggedIn = true
                     } catch(e) {
-                        console.log('Error: ' + e);
-                        this.error = true
-                        this.email = ''
+                      console.log('Error: ' + e);
+                      this.error = true
+                      this.email = ''
                     } 
-                }
+                },
             }
         }
     </script>

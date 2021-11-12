@@ -14,6 +14,7 @@
     "mdbvue": "^6.7.3",
     "vue": "^3.0.0",
     "vue-axios": "^3.2.5",
+    "vue-meta": "^2.4.0",
     "vue-nav-ui": "^1.0.5",
     "vue-navigation-bar": "^4.1.0",
     "vue-router": "^4.0.10",

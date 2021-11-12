@@ -47,6 +47,9 @@
 import { MDBCardImg, MDBTable, MDBIcon } from 'mdb-vue-ui-kit';
 export default {
   name: 'WaterSource',
+  created(){
+    document.title = "FindWater.io"
+  },
   props: ['watersource'],
   components: {
     MDBCardImg,

@@ -1,8 +1,10 @@
 <template>
   <div style="width:100%; display:inline;float:left;padding:25px;">
+    
     <div class="nav-left">
       <router-link to="/" class="home">FindWater.io <img alt="Find Water" src="../assets/water-drop.png" style="width:50px" class="logo"></router-link>
     </div>
+    
     <div class="nav">
       <router-link to="/SearchResults" class="link">Water Source Finder</router-link>
       <router-link to="/Submit" class="link login">
@@ -11,28 +13,35 @@
       <router-link to="/About" class="link">About the Project</router-link>
       <router-link to="/Contact" class="link">Contact Us</router-link>
     </div>
+    
     <div class="nav-right">
       <div class="helllo" v-show="loggedIn">
         <h6>Welcome, Jackie</h6>
       </div>
-    <MDBBtn color="primary" aria-controls="exampleModal" @click="exampleModal = true"
-       v-show="!loggedIn">Login</MDBBtn
-    >
-    <MDBBtn color="primary" aria-controls="exampleModal" @click="logout()" v-show="loggedIn">Logout</MDBBtn
-    >
-    <!--
-     <form class="d-flex input-group w-auto">
-      <input
-        type="search"
-        class="form-control"
-        placeholder="search for water"
-        aria-label="Search"
-      />
-      <MDBBtn outline="primary"> Search </MDBBtn>
-    </form>
-    -->
+    
+      <MDBBtn color="primary" aria-controls="exampleModal" @click="exampleModal = true" v-show="!loggedIn">Login</MDBBtn>
+      
+      <Register></Register>
+    
+      <MDBBtn color="primary" aria-controls="exampleModal" @click="logout()" v-show="loggedIn">Logout</MDBBtn>
+    
+
+      <!-- TODO SEARCH INLINE
+       <form class="d-flex input-group w-auto">
+        <input
+          type="search"
+          class="form-control"
+          placeholder="search for water"
+          aria-label="Search"
+        />
+        <MDBBtn outline="primary"> Search </MDBBtn>
+      </form>
+      -->
+
     </div>
+
   </div>
+
   <MDBModal
     id="exampleModal"
     tabindex="-1"
@@ -73,6 +82,8 @@
 <script>
   import { MDBBtn, MDBModal, MDBModalHeader, MDBModalTitle, MDBModalBody, MDBModalFooter } from 'mdb-vue-ui-kit'
 
+  import Register from '@/components/Register'
+
   import { ref } from 'vue'
 
   //import $ from 'jquery'
@@ -85,7 +96,8 @@
       MDBModalHeader,
       MDBModalTitle,
       MDBModalBody,
-      MDBModalFooter
+      MDBModalFooter,
+      Register
     },
 
     data() {
