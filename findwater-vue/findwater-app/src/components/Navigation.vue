@@ -16,7 +16,7 @@
     
     <div class="nav-right">
       <div class="helllo" v-show="loggedIn">
-        <h6>Welcome, Jackie</h6>
+        <h6>Welcome, {{this.username}}</h6>
       </div>
     
       <MDBBtn color="primary" aria-controls="exampleModal" @click="exampleModal = true" v-show="!loggedIn">Login</MDBBtn>
@@ -57,11 +57,11 @@
           <p v-show="error" class="text-sm text-red-500">{{ errorMsg }}</p>
             <form @submit="register">
               <div class="reg">
-                <h3 class="text-left font-bold mb-2 font-montserrat reg-header">Email</h3>
+                <h5 class="text-left font-bold mb-2 font-montserrat reg-header">Email</h5>
                   <input type="email" v-model="email" class="text-sm outline-none pb-2 w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
               </div>
               <div class="reg">
-                <h3 class="text-left font-bold mb-2 font-montserrat reg-header">Password</h3>
+                <h5 class="text-left font-bold mb-2 font-montserrat reg-header">Password</h5>
                 <input type="password" v-model="password" class="text-sm outline-none pb-2 w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
               </div>
                             
@@ -104,6 +104,7 @@
       return {
         email: '',
         password: '',
+        username: '',
         error: false,
         errorMsg: `An Error occurred, please try again`,
         loggedIn: false
@@ -122,7 +123,8 @@
         try {
           const res = await this.axios.post(`http://localhost:1337/auth/local`, {
             identifier: this.email,
-            password: this.password
+            password: this.password,
+            username: this.username
           });
           const { jwt, user } = res.data
           window.localStorage.setItem('jwt', jwt)
@@ -130,6 +132,8 @@
           window.localStorage.setItem('bookmarks', JSON.stringify(user.bookmarks))
           this.exampleModal = false
           this.loggedIn = true
+          this.username = window.localStorage.userData.username
+          console.log(this.username)
         } catch(e) {
           console.log('Error: ' + e);
           this.error = true
@@ -211,5 +215,19 @@
   .logo {
     display: inline-block;
     vertical-align: top;
+  }
+  .reg-header {
+    display: inline-block;
+    padding: 5px;
+    width: 30%;
+  }
+  .reg-container {
+    background-color: #f1f1f1;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .5rem;
+  }
+  .reg-input {
+    height: 40px;
+    width: 50%;
   }
 </style>

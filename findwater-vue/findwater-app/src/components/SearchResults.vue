@@ -3,9 +3,9 @@
     <div class="flex items-center justify-center h-screen">
       <div class="sm:w-1/2">
         <div class="p-5 w-4/5 mx-auto text-left font-raleway">
-          <h1 class="font-bold text-left font-montserrat text-4xl sm:text-6xl">
+          <h4 class="font-bold text-left font-montserrat text-4xl sm:text-6xl">
             Water Source Finder
-          </h1>
+          </h4>
         </div>
       </div>
 

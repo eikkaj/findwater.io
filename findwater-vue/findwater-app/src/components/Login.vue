@@ -13,11 +13,11 @@
                         <p v-show="error" class="text-sm text-red-500">{{ errorMsg }}</p>
                         <form @submit="login">
                             <div>
-                                <h3 class="text-left font-bold font-montserrat reg-header">Email</h3>
+                                <h5 class="text-left font-bold font-montserrat reg-header">Email</h5>
                                 <input type="email" v-model="email" class="text-sm outline-none w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
                             </div>
                             <div>
-                                <h3 class="text-left font-bold font-montserrat reg-header">Password</h3>
+                                <h5 class="text-left font-bold font-montserrat reg-header">Password</h5>
                                 <input type="password" v-model="password" class="text-sm outline-none w-4/5 bg-transparent border-b hover:border-blue-700 focus:border-blue-700">
                             </div>
                             
@@ -72,11 +72,16 @@
     <style>
         .reg-header {
             display: inline-block;
-            padding: 10px;
+            padding: 5px;
+            width: 30%;
         }
         .reg-container {
             background-color: #f1f1f1;
             border: 1px solid rgba(0,0,0,.125);
             border-radius: .5rem;
+        }
+        .reg-input {
+          height: 40px;
+          width: 50%;
         }
     </style>
