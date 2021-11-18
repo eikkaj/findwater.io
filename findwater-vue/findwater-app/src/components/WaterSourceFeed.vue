@@ -4,7 +4,9 @@
       <div v-bind:key="watersource.index" v-for="watersource in watersources">
         <MDBCol>
           <MDBCard>
-            <MDBCardImg :src="imageLink + watersource.image.formats.medium.url" top alt="Image"/>
+            <div v-if="watersource.image.format">
+              <MDBCardImg :src="imageLink + watersource.image.formats.small.url" right alt="Image"/>
+            </div>
             <MDBCardBody>
               <MDBCardTitle>{{watersource.coords}}</MDBCardTitle>
               <MDBCardText>

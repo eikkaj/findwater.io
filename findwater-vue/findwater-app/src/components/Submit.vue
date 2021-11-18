@@ -59,14 +59,19 @@
                 }
             },
             methods: {
-                async submit(e) {
+                async submit() {
                     try {
-                        e.preventDefault()
-                            await this.axios.post(`http://localhost:1337/water-source`, {
+                        const { submission_response } = 
+                            await this.axios.post(`http://localhost:1337/water-sources`, {
                             type: this.type,
                             description: this.description,
-                            coords: this.coords
-                        })
+                            coords: this.coords,
+                            headers: {
+                            Authorization:
+                              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTc2OTM4MTUwLCJleHAiOjE1Nzk1MzAxNTB9.UgsjjXkAZ-anD257BF7y1hbjuY3ogNceKfTAQtzDEsU',
+                            }
+                        });
+                        console.log(submission_response);
                         this.$router.push('/')
                     } catch(e) {
                         console.log('Error: ' + e);
@@ -111,5 +116,8 @@
             margin-bottom: 2px;
             font-style: oblique;
             font-size: 12px;
+        }
+        .text-red-500 {
+            color: #FF0000;
         }
     </style>

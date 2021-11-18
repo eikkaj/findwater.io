@@ -9,35 +9,37 @@
         </div>
       </div>
 
-    
-   
-    <input type='text' placeholder='Filter Search' v-model='search.text' />
-    {{ query }}
-    <button @click='searchsources'> Search</button>
-    <button @click='reset'> Reset </button>
+      <input type='text' placeholder='Filter Search' v-model='search.text' />
+      {{ query }}
+      <button @click='searchsources'> Search</button>
+      <button @click='reset'> Reset </button>
 
-    <!-- results -->
-    <div v-if="watersources.length" class="water-source-feed">
-      <MDBRow :cols="['1','md-4']" class="g-4">
-        <div v-bind:key="watersource.index" v-for="watersource in watersources">
-          <MDBCol>
-            <MDBCard>
-              <MDBCardImg :src="imageLink + watersource.image.formats.medium.url" top alt="Image"/>
-              <MDBCardBody>
-                <MDBCardTitle>{{watersource.coords}}</MDBCardTitle>
-                <MDBCardText>
-                  {{watersource.description}}
-                </MDBCardText>
-                <MDBBtn tag="a" href="http://localhost:8080/WaterSource" color="primary">
-                  <router-link :to="{ name: 'WaterSource', params: { watersource: watersource.id } } ">Open</router-link>
-              </MDBBtn>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </div>
-      </MDBRow>
+      <!-- results -->
+      <div v-if="watersources.length" class="water-source-feed">
+        <MDBRow :cols="['1','md-4']" class="g-4">
+          <div v-bind:key="watersource.index" v-for="watersource in watersources">
+            <MDBCol>
+              <MDBCard>
+                <div v-if="watersource.image">
+                  <MDBCardImg :src="imageLink + watersource.image.formats.small.url" top alt="Image"/>
+                </div>
+                <MDBCardBody>
+                  <MDBCardTitle>
+                    <a target="_blank" v-bind:href="'http://www.google.com/maps/place/' + watersource.coords">{{watersource.coords}}</a>
+                  </MDBCardTitle>
+                  <MDBCardText>
+                    {{watersource.description}}
+                  </MDBCardText>
+                  <MDBBtn tag="a" href="http://localhost:8080/WaterSource" color="primary">
+                    <router-link :to="{ name: 'WaterSource', params: { watersource: watersource.id } } ">Open</router-link>
+                </MDBBtn>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          </div>
+        </MDBRow>
+      </div>
     </div>
-   </div>
    </div>
 </template>
 

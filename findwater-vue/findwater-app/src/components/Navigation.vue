@@ -21,7 +21,9 @@
     
       <MDBBtn color="primary" aria-controls="exampleModal" @click="exampleModal = true" v-show="!loggedIn">Login</MDBBtn>
       
-      <Register></Register>
+      <div class="register-button" v-show="!loggedIn">
+        <Register></Register>
+      </div>
     
       <MDBBtn color="primary" aria-controls="exampleModal" @click="logout()" v-show="loggedIn">Logout</MDBBtn>
     
@@ -132,7 +134,7 @@
           window.localStorage.setItem('bookmarks', JSON.stringify(user.bookmarks))
           this.exampleModal = false
           this.loggedIn = true
-          this.username = window.localStorage.userData.username
+          this.username = user.username
           console.log(this.username)
         } catch(e) {
           console.log('Error: ' + e);
@@ -229,5 +231,8 @@
   .reg-input {
     height: 40px;
     width: 50%;
+  }
+  .register-button {
+    display: inline;
   }
 </style>
