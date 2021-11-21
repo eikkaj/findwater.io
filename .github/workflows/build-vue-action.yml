@@ -13,9 +13,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: xRealNeon/VuePagesAction@1.0.0
       - name: Install, Build, Test
+        uses: borales/actions-yarn@v2.3.0
         working-directory: findwater-vue
-        run: |
-          yarn install
+        with: 
+          cmd: install
