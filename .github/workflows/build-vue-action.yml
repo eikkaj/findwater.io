@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install, Build, Test
-        uses: borales/actions-yarn@v2.3.0
         working-directory: findwater-vue
+        uses: borales/actions-yarn@v2.3.0
         with: 
           cmd: install
