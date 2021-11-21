@@ -16,6 +16,6 @@ jobs:
       - name: Use Node.js
         uses: xRealNeon/VuePagesAction@1.0.0
       - name: Install, Build, Test
-        working-directory: findwater-io
+        working-directory: findwater-vue
         run: |
           yarn install
