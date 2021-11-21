@@ -1,18 +1,28 @@
 <template>
+  <div class="header-block">
+    <header>
+      <!-- Navbar -->
+      <Navigation></Navigation>
+    </header>
+  </div>
 
   <div class="app-body">
     <router-view/>
   </div>
 
+  <Footer></Footer>
 </template>
 
 <script>
 
+import Navigation from './components/Navigation'
+import Footer from './components/Footer'
 
 export default {
   name: 'App',
   components: {
-
+    'Navigation': Navigation,
+    'Footer': Footer
   }
 }
 </script>
@@ -23,8 +33,8 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    /**color: #2c3e50;**/
-    /**margin-top: 30px;**/
+    color: #2c3e50;
+    margin-top: 30px;
   }
   .header-block {
     display: inline-block;

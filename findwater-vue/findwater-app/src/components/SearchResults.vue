@@ -23,6 +23,9 @@
                 <div v-if="watersource.image">
                   <MDBCardImg :src="imageLink + watersource.image.formats.small.url" top alt="Image"/>
                 </div>
+                <div v-if="!watersource.image">
+                  <MDBCardImg src="/img/water-drop.676bbfd6.png" top alt="Image"/>
+                </div>
                 <MDBCardBody>
                   <MDBCardTitle>
                     <a target="_blank" v-bind:href="'http://www.google.com/maps/place/' + watersource.coords">{{watersource.coords}}</a>
@@ -113,5 +116,7 @@ export default {
 }
 </script>
 <style>
-
+  img.card-img-top {
+    max-width: 50%;
+  }
 </style>

@@ -235,4 +235,5 @@
   .register-button {
     display: inline;
   }
+  .nav-disabled {}
 </style>
