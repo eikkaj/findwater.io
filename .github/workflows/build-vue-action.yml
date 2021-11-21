@@ -1,0 +1,21 @@
+name: CI for Vue App
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: xRealNeon/VuePagesAction@1.0.0
+      - name: Install, Build, Test
+        working-directory: findwater-io
+        run: |
+          yarn install
