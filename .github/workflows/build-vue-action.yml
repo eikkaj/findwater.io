@@ -13,8 +13,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install, Build, Test
-        working-directory: findwater-vue
-        uses: borales/actions-yarn@v2.3.0
-        with: 
-          cmd: install
+      - name: Yarn install
+        uses: Borales/actions-yarn@v2.1.0
+        with:
+          cmd: --cwd findwater-vue install
