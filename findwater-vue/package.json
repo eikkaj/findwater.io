@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "mdb-vue-ui-kit": "^1.0.0",
-    "pg": "^8.7.1",
-    "pg-connection-string": "^2.5.0"
-  }
-}
